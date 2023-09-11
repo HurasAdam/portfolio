@@ -1,8 +1,12 @@
 const navbar = document.querySelector("nav");
 const navigationLinks = document.querySelectorAll(".link");
-const lettersWrapper = document.querySelectorAll(".home__content-static-letter");
-
-
+const lettersWrapper = document.querySelectorAll(
+  ".home__content-static-letter"
+);
+const thumbnails = document.querySelectorAll(".thumbnail img");
+const popup = document.querySelector(".popup");
+const popup__close = document.querySelector(".popup__close");
+const popup__image = document.querySelector(".popup img")
 function stickMenu() {
   const scrollPosition = window.scrollY;
 
@@ -31,23 +35,24 @@ navigationLinks.forEach((el) => {
   });
 });
 
-
 document.addEventListener("DOMContentLoaded", () => {
   for (let i = 0; i < lettersWrapper.length; i++) {
- 
-  
-const arrayOfLetters=[...lettersWrapper]
-  
+    const arrayOfLetters = [...lettersWrapper];
 
+    arrayOfLetters[i].classList.add("active");
 
-arrayOfLetters[i].classList.add("active");
-  
-arrayOfLetters[i].style.transitionDelay = `${0.12*i}s`;
-arrayOfLetters[i].style.transitionDuration = `${i*.1}s`;
-
+    arrayOfLetters[i].style.transitionDelay = `${0.12 * i}s`;
+    arrayOfLetters[i].style.transitionDuration = `${i * 0.1}s`;
   }
-
-
 });
 
+thumbnails.forEach((thumbnail, index) => {
+  thumbnail.addEventListener("click", (e) => {
+    popup.classList.remove("hidden");
+    popup__image.src= e.target.src
+  });
+});
 
+popup__close.addEventListener("click", () => {
+  popup.classList.add("hidden");
+});

@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'Exo 2', sans-serif;
-font-family: 'Roboto', sans-serif;
+  font-family: "Exo 2", sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   height: 100vh;
   width: 100vw;
@@ -16,26 +16,25 @@ font-family: 'Roboto', sans-serif;
   display: flex;
   height: 6vh;
   justify-content: space-evenly;
-display: flex;
-align-items: center;
-letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.2px;
 }
-.navbar.active{
-  box-shadow: .1px .1px 5px black;
+.navbar.active {
+  box-shadow: 0.1px 0.1px 5px black;
   width: 100%;
-position: sticky;
-top:0;
-z-index: 100;
-background: linear-gradient(
-  60deg,
-  rgba(31, 154, 133, 0.1),
-  rgba(22, 21, 21, 0.5)
-);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(
+    60deg,
+    rgba(31, 154, 133, 0.1),
+    rgba(22, 21, 21, 0.5)
+  );
 }
-.navbar.active .link{
-color:rgb(255, 255, 255);
+.navbar.active .link {
+  color: rgb(255, 255, 255);
 }
-
 
 .link {
   position: relative;
@@ -43,14 +42,14 @@ color:rgb(255, 255, 255);
   text-decoration: none;
   list-style-type: none;
   font-weight: 600;
-  color:rgb(70, 43, 84);
+  color: rgb(70, 43, 84);
   font-size: 1rem;
   transition: all 0.5s ease-in-out;
 }
 .link:hover {
-color: grey;
+  color: grey;
 }
-.link::after{
+.link::after {
   content: "";
   width: 0;
   height: 0.2rem;
@@ -66,8 +65,8 @@ color: grey;
 .link:hover::after {
   width: 100%;
 }
-.navbar.active .link::after{
-background-color: rgb(20, 68, 8);
+.navbar.active .link::after {
+  background-color: rgb(20, 68, 8);
 }
 
 /* CONTENT */
@@ -75,7 +74,6 @@ background-color: rgb(20, 68, 8);
 .home {
   height: calc(100vh - 6vh);
   width: 100%;
-
 }
 .home__content-wrapper {
   display: flex;
@@ -85,73 +83,65 @@ background-color: rgb(20, 68, 8);
 .home__content-static {
   margin-left: 80px;
   flex: 1;
-gap:26px;
+  gap: 26px;
   display: flex;
 
-  align-items:center;
+  align-items: center;
   justify-content: center;
   height: 100%;
 
-  flex-direction:column;
+  flex-direction: column;
 }
-.home__content-static--top{
-
-justify-content: flex-end;
-  display: flex;
-}
-.home__content-static--mid{
-
+.home__content-static--top {
   justify-content: flex-end;
   display: flex;
 }
-.home__content-static--bottom{
+.home__content-static--mid {
+  justify-content: flex-end;
+  display: flex;
+}
+.home__content-static--bottom {
   width: 100%;
   justify-content: center;
   display: flex;
 }
 
-.home__content-static-letter{
-
-font-weight: 600;
-font-size: 3.4rem;
+.home__content-static-letter {
+  font-weight: 600;
+  font-size: 3.4rem;
   border-radius: 1rem;
   display: flex;
   align-items: center;
-margin:0;
-padding: 0;
+  margin: 0;
+  padding: 0;
   opacity: 0;
-
 }
 
-.home__content-static-letter.active{
-  opacity:1;
-  color:black;
+.home__content-static-letter.active {
+  opacity: 1;
+  color: black;
 }
-.separator{
-  width:20px;
+.separator {
+  width: 20px;
   height: 20px;
 }
 
-.home__content-video{
-
+.home__content-video {
   max-width: 60%;
   display: flex;
-
 }
-.home__content-video video{
+.home__content-video video {
   height: 100%;
   object-fit: cover;
   width: 100%;
-  
 }
-.layer{
-
+.layer {
   position: absolute;
-  top:calc(0 - 6vh);
-  height: calc(100vh - 6vh)
+  top: calc(0 - 6vh);
+  height: calc(100vh - 6vh);
 }
-.layer img{
-height: 100%;
+.layer img {
+  height: 100%;
 }
 
 /* fotography */
@@ -185,6 +175,7 @@ height: 100%;
   width: 100%;
 }
 .gallery {
+  position: relative;
   background: linear-gradient(
     60deg,
     rgba(255, 255, 255, 0.1),
@@ -199,7 +190,7 @@ height: 100%;
   min-height: calc(100vh - 10vh);
   height: max-content;
   justify-content: space-evenly;
-  padding:  58px 42px;
+  padding: 58px 42px;
 }
 
 .thumbnail {
@@ -227,6 +218,44 @@ height: 100%;
 }
 /* photograpgy */
 
+.popup.hidden {
+  display: none;
+}
+
+.popup {
+  animation: fadeIn 0.4s;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  display: flex;
+}
+
+.popup img {
+  height: 80%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.popup__close {
+  position: fixed;
+  cursor: pointer;
+  top: 64px;
+  right: 72px;
+  font-size: 86px;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border: none;
+}
+
 .photograpgy {
   background: linear-gradient(
     60deg,
@@ -239,4 +268,9 @@ height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@keyframes fadeIn{
+  from{opacity: 0;}
+  to{opacity: 1;}
 }

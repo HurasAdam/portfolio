@@ -1,5 +1,8 @@
 const navbar = document.querySelector("nav");
 const navigationLinks = document.querySelectorAll(".link");
+const mobileNavigationLinks= document.querySelectorAll(".mobileLink");
+const combinedNavigationLinks = document.querySelectorAll(".link, .mobileLink")
+
 const lettersWrapper = document.querySelectorAll(
   ".home__content-static-letter"
 );
@@ -22,10 +25,13 @@ function stickMenu() {
 
 window.addEventListener("scroll", stickMenu);
 
-navigationLinks.forEach((el) => {
+
+combinedNavigationLinks.forEach((el) => {
   el.addEventListener("click", (e) => {
     const key = e.target.dataset.key;
     console.log(key);
+    mobileNavigation.classList.toggle("active")
+
     const section =
       document.querySelector(`.${key}`).getBoundingClientRect().top +
       window.pageYOffset -
@@ -61,5 +67,6 @@ popup__close.addEventListener("click", () => {
 });
 
 burgerButton.addEventListener("click",()=>{
-  mobileNavigation.classList.add("active");
+  mobileNavigation.classList.toggle("active");
+  burgerButton.classList.toggle("active");
 })

@@ -1,5 +1,3 @@
-
-
 * {
   margin: 0;
   padding: 0;
@@ -67,12 +65,34 @@ body {
   width: 100%;
 }
 
-.navigation-mobile{
+.navigation-mobile {
   display: none;
 }
-
+.navigation-mobile ul {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.navigation-mobile ul li {
+  font-weight: 600;
+  color: white;
+  font-size: 48px;
+  text-decoration: none;
+  list-style-type: none;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.navigation-mobile ul .mobileLink:hover {
+transform: scale(1.1);
+text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+padding: 0px 40px;
+}
 .burger {
   display: none;
+  z-index: 400;
 }
 .link {
   position: relative;
@@ -105,6 +125,26 @@ body {
 }
 .navbar.active .link::after {
   background-color: rgb(20, 68, 8);
+}
+
+.burger span {
+  width: 100%;
+  height: 0.4rem;
+  background-color: black;
+  border-radius: 8.5rem;
+  transition: all ease-in-out 0.3s;
+}
+
+.burger.active > span:nth-child(1) {
+  transform: rotate(-45deg) translateY(0.9rem);
+}
+
+.burger.active > span:nth-child(2) {
+  transform: rotate(45deg) translateY(-0.6rem);
+}
+
+.burger.active > span:nth-child(3) {
+  transform: translateX(-200%);
 }
 
 /* CONTENT */
@@ -358,10 +398,13 @@ body {
 
 /* MOBILE */
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 1000px) {
   .navigation {
     display: none;
+ 
+    
   }
+
   .navigation__logo {
     display: none;
   }
@@ -378,41 +421,19 @@ body {
     align-items: flex-end;
     cursor: pointer;
   }
-  .burger span {
-    width: 100%;
-    height: 0.4rem;
-    background-color: black;
-    border-radius: 8.5rem;
-    transition: all ease-in-out 0.3s;
-  }
-  .navigation-mobile.active{
-display: block;
-width: 100vw;
-height: 100vh;
-background-color: orange;
-position: absolute;
-top:0;
-left:0;
-z-index: 100;
 
-
-justify-content: center;
-  }
-  .navigation-mobile ul{
+  .navigation-mobile.active {
+    display: block;
     width: 100vw;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  
-  }
-  .navigation-mobile ul li{
-font-weight: 600;
-color:white;
-font-size: 36px;
-text-decoration: none;
-list-style-type: none;
-cursor: pointer;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff6b6b, #ffe66d);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    justify-content: center;
+    animation: fadeIn 0.45s;
   }
 }
+
+

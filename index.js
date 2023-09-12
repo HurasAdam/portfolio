@@ -7,6 +7,9 @@ const thumbnails = document.querySelectorAll(".thumbnail img");
 const popup = document.querySelector(".popup");
 const popup__close = document.querySelector(".popup__close");
 const popup__image = document.querySelector(".popup img")
+const burgerButton= document.querySelector(".burger");
+const mobileNavigation = document.querySelector(".navigation-mobile");
+
 function stickMenu() {
   const scrollPosition = window.scrollY;
 
@@ -56,3 +59,7 @@ thumbnails.forEach((thumbnail, index) => {
 popup__close.addEventListener("click", () => {
   popup.classList.add("hidden");
 });
+
+burgerButton.addEventListener("click",()=>{
+  mobileNavigation.classList.add("active");
+})

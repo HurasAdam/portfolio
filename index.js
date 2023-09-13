@@ -31,7 +31,7 @@ combinedNavigationLinks.forEach((el) => {
     const key = e.target.dataset.key;
     console.log(key);
     mobileNavigation.classList.toggle("active")
-
+    burgerButton.classList.remove("active");
     const section =
       document.querySelector(`.${key}`).getBoundingClientRect().top +
       window.pageYOffset -
